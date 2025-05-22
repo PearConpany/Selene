@@ -146,4 +146,30 @@ These examples cover user input, variables, loops, conditions, pauses, list hand
 
 ## Contributing
 
-(This section will be updated with guidelines for contributing to Selene. We welcome contributions from educators, students, and developers!)
+**This is a Public Beta / Testing Version!**
+
+We are thrilled to share Selene with the community at this stage. We encourage you to **download, run, and thoroughly test** all aspects of the language and the Luna Wizard IDE.
+
+**Found a Bug?**
+Please let us know! Your bug reports and feedback on any issues you encounter are invaluable.
+
+**Current State of the Code:**
+Selene is functional but not yet fully optimized. We are actively working on improving it. Specific areas where we anticipate further development include:
+*   Refinement of logical conditions and their parsing.
+*   Enhancements to how Selene interacts with and adapts Python modules.
+*   General code structure improvements and performance optimizations.
+
+**We Welcome Your Contributions!**
+Selene is an open project, and we believe in the power of community collaboration. Your input can significantly shape its future.
+
+**Our Vision & Your Impact:**
+Our long-term vision is to implement Selene in classrooms across Mexico and the United States, making programming more accessible to students. Your feedback, bug reports, and contributions are vital to achieving this goal and ensuring Selene is a robust and effective learning tool.
+
+**How You Can Contribute:**
+There are many ways to help:
+*   **Provide Feedback:** Share your experiences, what you like, and what could be better.
+*   **Report Bugs:** Detailed bug reports help us identify and fix issues quickly.
+*   **Suggest Features:** Have ideas for new features or improvements? Let us know!
+*   **Improve Code:** If you're a developer, contributions to the codebase are welcome.
+
+We are excited to hear from you and build a better Selene together!
