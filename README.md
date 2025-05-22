@@ -171,5 +171,8 @@ There are many ways to help:
 *   **Report Bugs:** Detailed bug reports help us identify and fix issues quickly.
 *   **Suggest Features:** Have ideas for new features or improvements? Let us know!
 *   **Improve Code:** If you're a developer, contributions to the codebase are welcome.
+*   **Send us an email:** If you are passionate about the project and found bugs or improvements that you think will improve the project and help us reach our goal, send us an email to: inovation.of.the.pear@gmail.com
 
 We are excited to hear from you and build a better Selene together!
+
+**Created with ❤️ from Mexico by: Elian Alfonso López Preciado**
