@@ -76,7 +76,8 @@ This approach means that users can access a vast range of functionalities availa
 To get started with Selene, follow these instructions:
 
 **Prerequisites:**
-*   Python 3.12 or higher. Make sure your Python installation includes Tkinter (it's usually included by default).
+*   Python 3.12 or higher.
+*   **Tkinter**: Selene's graphical IDE (Luna Wizard) uses Tkinter. Most Python installations include Tkinter by default. However, on some systems (especially minimal Linux installations like Debian/Ubuntu), you might need to install the Tkinter support libraries separately. For example, on Debian/Ubuntu, you can install it with: `sudo apt-get install python3-tk`. For other operating systems, please consult their documentation for installing Tkinter or Tk support.
 
 **Project Structure:**
 *   Clone or unzip the project so that the top-level directory contains `selene.py`, `start_luna.py`, and the `Functions/` and `Luna/` folders.
