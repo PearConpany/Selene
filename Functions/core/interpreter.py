@@ -1,4 +1,4 @@
-# Selene 0.9.1 – Fix de “invalid syntax” en funciones y entrada GUI
+# Selene 0.10.0-beta – Fix de “invalid syntax” en funciones y entrada GUI
 """
 Cambios clave
 -------------
@@ -40,13 +40,25 @@ def _eval(expr: str, env: Env):
         return None
 
 
+def _dict_expr(text: str) -> str:
+    """Convierte pares clave:valor en expresión de diccionario de Python."""
+    items = []
+    for part in text.split(','):
+        if ':' in part:
+            k, v = map(str.strip, part.split(':', 1))
+            if not (k.startswith('"') and k.endswith('"')):
+                k = repr(k)
+            items.append(f"{k}: {v}")
+    return '{' + ', '.join(items) + '}'
+
+
 def run_file(path: Path) -> None:
     run_lines(path.read_text(encoding="utf-8").splitlines(), {})
 
 
 def run_repl() -> None:
     env: Env = {}
-    print("Selene 0.9.1 REPL – 'salir' para terminar")
+    print("Selene 0.10.0-beta REPL – 'salir' para terminar")
     while True:
         try:
             run_lines([input("selene> ")], env)
@@ -157,6 +169,18 @@ def _to_python(lines: List[str]) -> str:
             if match:
                 var, iterable = match.groups()
                 out.append(f"for {var} in {iterable}:")
+        elif t == "rompe":
+            out.append("break")
+        elif t == "continua":
+            out.append("continue")
+        elif t.startswith("retorna "):
+            out.append("return " + t[8:])
+        elif t.startswith("diccionario "):
+            try:
+                name, val = map(str.strip, t[11:].split("=", 1))
+                out.append(f"{name} = " + _dict_expr(val))
+            except ValueError:
+                out.append(t)
         elif t.startswith("toma "):
             # Mejoramos el manejo de asignaciones
             assignment = t[5:]
@@ -297,6 +321,14 @@ def _exec_simple(line: str, env: Env):
             return
         except Exception as e:
             print(f"⚠️  Error al sumar: {str(e)}")
+            return
+    if cmd == "diccionario":
+        try:
+            var, items = args.split("=", 1)
+            env[var.strip()] = _eval(_dict_expr(items), env)
+            return
+        except Exception as e:
+            print(f"⚠️  Error al crear diccionario: {str(e)}")
             return
     _handle_import(line, env)  # intenta import implícito
 
