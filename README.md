@@ -144,6 +144,20 @@ muestra "Average:", avg
 
 These examples cover user input, variables, loops, conditions, pauses, list handling and module import—the core building blocks a beginner needs to feel productive in Selene. You can copy and paste these directly into the Luna Wizard IDE to see them in action!
 
+## Version History
+
+Selene evolves constantly. Here is a quick overview of notable versions:
+
+### 0.10.0-beta
+* Beta release introducing high level commands:
+  * `retorna` to return values from functions.
+  * `rompe` and `continua` for loop control.
+  * `diccionario` for easy dictionary creation.
+* Various internal improvements.
+
+### 0.9.1
+* Initial public testing version with basic loops, lists and module import.
+
 ## Contributing
 
 **This is a Public Beta / Testing Version!**
