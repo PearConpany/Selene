@@ -1,0 +1,26 @@
+# Test cases for the Astra library
+
+# 1. Import the library
+muestra "Test 1: Import Astra library"
+importa astra
+
+# 2. Create a Vector
+muestra "Test 2: Create a Vector"
+toma v = vector([1, 2, 3.5])
+muestra "Vector creado:", v
+
+# 3. Create a Matrix
+muestra "Test 3: Create a Matrix"
+toma m = matriz([[1, 2], [3, 4]])
+muestra "Matriz creada:", m
+
+# 4. Access properties
+muestra "Test 4: Access Matrix properties"
+muestra "Forma de la matriz:", m.forma
+
+# 5. Verify types (optional, for visual confirmation)
+muestra "Test 5: Verify types"
+muestra "Tipo de v:", type(v)
+muestra "Tipo de m:", type(m)
+
+muestra "Astra library tests finished."
