@@ -39,37 +39,39 @@ This version of Selene offers a robust set of capabilities for aspiring programm
     *   An initial splash screen for a pleasant startup experience.
     *   Support for custom application icons.
 *   **Core Programming Constructs Supported:**
-    *   **Variables:** Define variables using natural syntax (e.g., `toma x = 10`, `let y = "hello"`).
+    *   **Variables:** Define variables using natural syntax (e.g., `toma x = 10`).
     *   **Loops:** Implement `mientras` (while) loops for repetitive tasks.
     *   **Conditionals:** Use `si` (if) statements for decision-making.
-    *   **Lists:** Create and manipulate lists of items (e.g., `lista my_items = "apple", "banana", "orange"`).
-    *   **Module Imports:** Access Python's standard library modules with commands like `de math importa sqrt`.
+    *   **Lists:** Create and manipulate lists of items (e.g., `lista my_items = "apple", "banana"`).
+    *   **Module Imports:** Access Python's standard library with `de math importa sqrt` and native Selene libraries with `importa astra`.
+    *   **Native Libraries:** Selene now supports its own ecosystem of libraries. The first is **Astra**, for high-performance numerical computing (Vectors, Matrices).
     *   **Pauses:** Introduce delays into your programs (e.g., `espera 1` for a 1-second pause).
 *   **Python 3.12+ Compatibility:** Built to run on modern Python versions.
 *   **Windows Executable:** Can be packaged into a single `SeleneIDE.exe` using PyInstaller, allowing it to run on Windows machines without a separate Python installation.
 
-## Libraries and Dependencies
+## Architecture and Dependencies
 
-Selene's core is designed to be lightweight and accessible. Internally, it relies only on the Python standard library. The key modules used are:
-*   `re` (for parsing natural language commands)
-*   `importlib` (for dynamically importing modules)
-*   `time` (for functions like pausing execution)
-*   `pathlib` (for file system interactions)
-*   `tkinter` (powering the Luna Wizard graphical IDE)
-*   `zipfile` (primarily relevant for the PyInstaller packaging process to create the single executable)
+Selene has evolved to a more robust, modular architecture to support its growth into a high-performance language. The core interpreter is now divided into a parser, a built-ins manager, and an execution engine. This lays the groundwork for future optimizations and extensions.
 
-No third-party modules are mandatory for Selene to run from its Python scripts.
+Selene supports two types of libraries:
 
-One of Selene's powerful features is its ability to leverage the broader Python ecosystem through natural language commands. Users can import standard Python modules using Selene's intuitive syntax. For example:
+1.  **Python Modules:** Access the vast Python ecosystem using the `de ... importa ...` syntax. This is ideal for leveraging existing tools.
+    ```selene
+    de math importa sqrt
+    ```
+2.  **Native Selene Libraries:** High-performance libraries built specifically for Selene. These are loaded with the `importa` command.
+    ```selene
+    importa astra
+    ```
 
-*   To use functions from the `math` module, you can write:
-    `de math importa sqrt`
-    (This effectively allows Selene to access `math.sqrt`)
-*   To use the `random` module, you might say:
-    `de módulos importa random`
-    (This allows Selene to use functions from the `random` module)
+### Dependencies
 
-This approach means that users can access a vast range of functionalities available in Python's standard library without needing to manage complex installation steps for external libraries, as long as they have a standard Python environment set up.
+While Selene's core is lightweight, its native libraries may have dependencies. These are managed in the `requirements.txt` file.
+
+*   **Core:** The core language has no third-party dependencies.
+*   **Astra Library:** The `Astra` library requires **NumPy** for high-performance array computations.
+
+You must install these dependencies before running Selene.
 
 ## Getting Started
 
@@ -78,8 +80,20 @@ To get started with Selene, follow these instructions:
 **Prerequisites:**
 *   Python 3.12 or higher. Make sure your Python installation includes Tkinter (it's usually included by default).
 
+**Installation:**
+1.  Clone the repository.
+2.  Install the necessary dependencies from your terminal:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 **Project Structure:**
-*   Clone or unzip the project so that the top-level directory contains `selene.py`, `start_luna.py`, and the `Functions/` and `Luna/` folders.
+*   The main components of the project are:
+    *   `selene.py`: The main entry point.
+    *   `Functions/`: Contains the core interpreter logic (now modularized).
+    *   `Libraries/`: Houses native Selene libraries like `Astra`.
+    *   `Luna/`: Contains the code for the Luna Wizard IDE.
+    *   `requirements.txt`: Lists the Python dependencies.
 
 **Running Selene:**
 
@@ -142,7 +156,25 @@ toma avg = sum(scores) / len(scores)
 muestra "Average:", avg
 ```
 
-These examples cover user input, variables, loops, conditions, pauses, list handling and module import—the core building blocks a beginner needs to feel productive in Selene. You can copy and paste these directly into the Luna Wizard IDE to see them in action!
+### Using the Astra Library
+
+Here’s how you can use the new `Astra` library for numerical computing:
+
+```selene
+# Load the library first
+importa astra
+
+# Create a vector
+toma v = vector([5, 10, 15])
+muestra "Mi vector:", v
+
+# Create a matrix
+toma m = matriz([[1, 2], [3, 4]])
+muestra "Mi matriz:", m
+muestra "Forma de la matriz:", m.forma
+```
+
+These examples cover the core building blocks a beginner needs to feel productive in Selene. You can copy and paste them directly into the Luna Wizard IDE to see them in action!
 
 ## Contributing
 

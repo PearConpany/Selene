@@ -1,0 +1,60 @@
+# Test cases for Selene
+
+# 1. Basic I/O and variables
+muestra "Test 1: Basic I/O and variables"
+toma x = 10
+toma y = "Hello"
+muestra "x is", x
+muestra "y is", y
+
+# 2. Expressions
+muestra "Test 2: Expressions"
+toma a = 10 + 5
+muestra "10 + 5 is", a
+toma b = a * 2
+muestra "a * 2 is", b
+
+# 3. Conditional 'si'
+muestra "Test 3: Conditional 'si'"
+si 5 > 3:
+    muestra "5 > 3 is true"
+si 3 > 5:
+    muestra "3 > 5 is true (should not print)"
+
+# 4. Loop 'mientras'
+muestra "Test 4: Loop 'mientras'"
+toma count = 3
+mientras count > 0:
+    muestra "count is", count
+    toma count = count - 1
+
+# 5. Function definition 'define' (currently broken)
+muestra "Test 5: Function definition 'define'"
+define greet(name):
+    muestra "Hello,", name
+
+greet("World")
+
+# 6. Class definition 'clase' (currently broken)
+muestra "Test 6: Class definition 'clase'"
+clase Person:
+    define __init__(self, name):
+        toma self.name = name
+    define say_hi(self):
+        muestra self.name, "says hi"
+
+toma p = Person("Selene")
+p.say_hi()
+
+# 7. Lists
+muestra "Test 7: Lists"
+lista my_list = 1, "two", 3.0
+muestra my_list
+
+# 8. Imports
+muestra "Test 8: Imports"
+de math importa sqrt
+toma result = sqrt(16)
+muestra "sqrt(16) is", result
+
+muestra "All tests finished."
