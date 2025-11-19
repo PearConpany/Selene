@@ -106,10 +106,14 @@ def _exec_block(header: str, body: List[str], env: Env):
         return
     if h.startswith("mientras "):
         cond = header[9:].rstrip(":")
-        while _eval(cond, env): run_lines(body, env); return
+        while _eval(cond, env):
+            run_lines(body, env)
+        return
     if h.startswith("repite "):
         n = int(_eval(header.split()[1], env))
-        for _ in range(n): run_lines(body, env); return
+        for _ in range(n):
+            run_lines(body, env)
+        return
     print("⚠️  Bloque desconocido:", header)
 
 # ----------------------------------------------------------------------
